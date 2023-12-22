@@ -9,38 +9,38 @@ applications_router = fastapi.APIRouter(prefix= "/applications", tags= ["Applica
 def get_application(application_id: int) -> dict:
     return res_applications.get_application(application_id = application_id)
 
-@applications_router.get(path= "/get/all", tags= ["Applications"])
+@applications_router.get(path= "/get/all", response_model= dict)
 def get_applications() -> dict:
     return res_applications.get_applications()
 
-@applications_router.get(path= "/get/CountCompletedApplications", tags= ["Applications"])
+@applications_router.get(path= "/get/CountCompletedApplications", response_model= dict)
 def get_count_completed_applications() -> dict:
     return res_applications.get_count_completed_applications()
 
-@applications_router.get(path= "/get/MidleTimeCompletedApplications", tags= ["Applications"])
+@applications_router.get(path= "/get/MidleTimeCompletedApplications", response_model= dict)
 def get_midle_time_completed_applications() -> dict:
     return res_applications.get_midle_time_completed_applications()
 
-@applications_router.get(path= "/get/StatisticTravels", tags= ["Applications"])
+@applications_router.get(path= "/get/StatisticTravels", response_model= dict)
 def get_statistic_travels() -> dict:
     return res_applications.get_statistic_travels()
 
-@applications_router.post(path= "/add", tags= ["Applications"])
+@applications_router.post(path= "/add", response_model= dict)
 def add_application(application: applications) -> dict:
     return res_applications.add_application(application= application)
 
-@applications_router.put(path= "/update/manager", tags= ["Applications"])
+@applications_router.put(path= "/update/manager", response_model= dict)
 def update_manager(application: applications) -> dict:
     return res_applications.update_manager(application= application)
 
-@applications_router.put(path= "/update/status", tags= ["Applications"])
+@applications_router.put(path= "/update/status", response_model= dict)
 def update_status(application: applications) -> dict:
     return res_applications.update_status(application= application)
 
-@applications_router.put(path= "/update/desired_travel", tags= ["Applications"])
+@applications_router.put(path= "/update/desired_travel", response_model= dict)
 def update_desired_travel(application: applications) -> dict:
     return res_applications.update_desired_travel(application= application)
 
-@applications_router.delete(path= "/delete", tags= ["Applications"])
+@applications_router.delete(path= "/delete", response_model= dict)
 def delete_application(application_id: int) -> dict:
     return res_applications.delete_application(application_id= application_id)
