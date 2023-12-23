@@ -9,6 +9,10 @@ def get_user(user_id: int) -> dict:
 def get_users() -> dict:
     return db_manager.execute(query= """SELECT * FROM users""", many= True)
 
+def check_user(user: users) -> users:
+    return db_manager.execute(query= """SELECT id, post_id FROM users WHERE login = ? AND password = ?""",
+                              args= (user.login, user.password))
+
 def add_user(user: users) -> dict:
     return db_manager.execute(query= """INSERT INTO users(login, password, post_id)
                                         VALUES(?,?,?)""",

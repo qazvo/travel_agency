@@ -13,6 +13,10 @@ def get_user(user_id: int) -> dict:
 def get_users() -> dict:
     return res_users.get_users()
 
+@users_router.get(path="/get/check", response_model= dict)
+def check_users(user: users) -> users:
+    return res_users.check_user(user= user)
+
 @users_router.post(path="/add", response_model= dict)
 def add_user(user: users) -> dict:
     return res_users.add_user(user= user)
